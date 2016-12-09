@@ -53,10 +53,13 @@ var uStatePaths=[
 ];
 var states={};
 		
-states.draw = function(id, data){		
+states.draw = function (id, data) {
+  console.log(data);
 	d3.select(id).selectAll(".state")
 		.data(uStatePaths).enter().append("path").attr("class", "state").attr("d", function (d) { return d.d; })
 		.style("fill", function (d) {
+		  console.log("id=" + d.id);
+		  console.log("data[id]=" + data[d.id]);
 		  if (data[d.id] == undefined) 
 		    return "";
       else
